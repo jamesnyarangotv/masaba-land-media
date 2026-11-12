@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MASABA LAND MEDIA | Let's Shape Our Community</title>
-<meta name="description" content="Masaba Land Media. Let's Shape Our Community. Community media, news, storytelling and advertising.">
+<meta name="description" content="Masaba Land Media - Community news, storytelling, advertising and engagement. Let's Shape Our Community.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -37,24 +37,23 @@ img{max-width:100%;display:block}
 
 /* HEADER */
 header{background:var(--black);position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--orange)}
-.header-inner{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.brand{display:flex;align-items:center;gap:20px;flex-shrink:0}
-.logo{width:56px;height:56px;object-fit:contain;border-radius:5px;flex-shrink:0}
-.brand-text{color:white;font-size:23px;font-weight:900;line-height:1;letter-spacing:1px}
+.header-inner{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo{width:54px;height:54px;object-fit:contain;border-radius:5px;flex-shrink:0}
+.brand-text{color:white;font-size:19px;font-weight:900;line-height:1;letter-spacing:.5px}
 .brand-text .orange{color:var(--orange)}
-.brand-text small{display:block;font-size:10px;letter-spacing:4px;margin-top:7px;color:#ddd}
+.brand-text small{display:block;font-size:9px;letter-spacing:4px;margin-top:7px;color:#ddd}
 
 nav{display:flex;align-items:center;gap:23px}
 nav a{color:white;font-size:14px;font-weight:600;transition:.25s}
 nav a:hover{color:var(--orange)}
 nav .nav-youtube{background:var(--orange);padding:11px 17px;border-radius:3px}
 nav .nav-youtube:hover{background:var(--burnt);color:white}
-
 .menu-button{display:none;background:transparent;border:1px solid var(--orange);color:white;padding:6px 12px;font-size:24px;border-radius:4px}
 
-/* HOMEPAGE PHOTO SLIDESHOW */
+/* HERO SLIDESHOW */
 .hero{
-min-height:430px;
+min-height:390px;
 position:relative;
 display:flex;
 align-items:center;
@@ -67,7 +66,11 @@ background:#080808;
 position:absolute;
 inset:0;
 z-index:-2;
+background:#080808;
 overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .hero-slide{
@@ -75,9 +78,10 @@ position:absolute;
 inset:0;
 width:100%;
 height:100%;
-object-fit:cover;
+object-fit:contain;
+object-position:center;
 opacity:0;
-transition:opacity 1.2s ease-in-out;
+transition:opacity 1.4s ease-in-out;
 }
 
 .hero-slide.active{opacity:1}
@@ -87,9 +91,8 @@ content:"";
 position:absolute;
 inset:0;
 z-index:-1;
-background:
-radial-gradient(ellipse at 78% 40%,rgba(255,90,0,.17),transparent 35%),
-linear-gradient(125deg,rgba(5,5,5,.82),rgba(21,16,13,.48),rgba(8,8,8,.72));
+background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.24),rgba(0,0,0,.55));
+pointer-events:none;
 }
 
 .hero:after{
@@ -97,11 +100,8 @@ content:"";
 position:absolute;
 inset:0;
 z-index:-1;
-background:repeating-linear-gradient(
-120deg,
-transparent 0 100px,
-rgba(255,255,255,.018) 101px 102px
-);
+background:repeating-linear-gradient(120deg,transparent 0 100px,rgba(255,255,255,.018) 101px 102px);
+pointer-events:none;
 }
 
 .hero-orbit{
@@ -124,17 +124,19 @@ border:1px solid rgba(255,90,0,.13);
 border-radius:50%;
 inset:35px;
 }
-
 .hero-orbit:after{inset:90px;border-color:rgba(255,255,255,.08)}
-@keyframes orbit{to{transform:translateY(-50%) rotate(360deg)}}
 
-.hero-content{position:relative;z-index:3;padding:55px 0 105px;max-width:680px}
+@keyframes orbit{
+to{transform:translateY(-50%) rotate(360deg)}
+}
+
+.hero-content{position:relative;z-index:3;padding:50px 0 105px;max-width:680px}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;color:var(--orange);font-size:12px;font-weight:800;letter-spacing:3px;margin-bottom:17px}
 .hero-tag:before{content:"";width:30px;height:2px;background:var(--orange)}
 .hero h1{font-size:clamp(32px,4.5vw,55px);line-height:1.05;letter-spacing:-1px;font-weight:900;color:white}
 .hero h1 span{color:var(--orange)}
 .hero h1 .white{color:white}
-.hero-description{font-size:15px;color:#e4e4e4;max-width:500px;margin:17px 0 23px;line-height:1.7}
+.hero-description{font-size:15px;color:#fff;max-width:500px;margin:17px 0 23px;line-height:1.7}
 .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 23px;font-size:12px;font-weight:800;letter-spacing:1px;border-radius:3px;transition:.25s}
@@ -157,7 +159,7 @@ inset:35px;
 .intro p{color:#ddd;font-size:13px;letter-spacing:2px;font-weight:600}
 .intro strong{color:var(--orange)}
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 .section{padding:85px 0}
 .section-label{color:var(--orange);font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase}
 .section-title{font-size:clamp(32px,5vw,50px);font-weight:900;line-height:1.1;margin-top:10px}
@@ -165,9 +167,10 @@ inset:35px;
 .section-subtitle{color:#686868;font-size:16px;max-width:650px;margin-top:16px}
 .heading-row{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:42px}
 
-/* ABOUT */
+/* ABOUT US */
 .about{background:var(--cream)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+
 .about-art{
 min-height:380px;
 background:radial-gradient(circle at center,rgba(255,90,0,.19),transparent 45%),linear-gradient(135deg,#080808,#18100b,#080808);
@@ -179,13 +182,23 @@ overflow:hidden;
 border-radius:5px;
 border-bottom:6px solid var(--orange);
 }
-.about-art:before,.about-art:after{content:"";position:absolute;border:1px solid rgba(255,90,0,.2);border-radius:50%;width:300px;height:300px}
+
+.about-art:before,.about-art:after{
+content:"";
+position:absolute;
+border:1px solid rgba(255,90,0,.2);
+border-radius:50%;
+width:300px;
+height:300px;
+}
 .about-art:after{width:400px;height:400px}
+
 .art-content{position:relative;z-index:2;text-align:center;padding:25px}
 .art-content img{width:125px;height:125px;object-fit:contain;margin:auto;border-radius:8px}
 .art-content h3{color:white;font-size:26px;font-weight:900;margin-top:17px}
 .art-content h3 span{color:var(--orange)}
 .art-content p{color:#bbb;font-size:10px;letter-spacing:4px;margin-top:6px}
+
 .about-copy p{color:#555;font-size:16px;margin:18px 0;line-height:1.9}
 .about-values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}
 .value{background:white;padding:18px;border-left:4px solid var(--orange);box-shadow:0 5px 20px rgba(0,0,0,.04)}
@@ -200,7 +213,7 @@ border-bottom:6px solid var(--orange);
 .news-empty h3{font-size:24px;margin:15px 0 7px}
 .news-empty p{color:#777}
 
-/* VIDEO */
+/* VIDEOS */
 .video-section{background:var(--black2);color:white}
 .video-section .section-title{color:white}
 .video-section .section-subtitle{color:#c1c1c1}
@@ -251,7 +264,19 @@ footer p,footer a{font-size:14px;color:#d5e4da;line-height:1.9}
 /* TABLET */
 @media(max-width:950px){
 .menu-button{display:block}
-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--black);padding:15px 5%;flex-direction:column;align-items:stretch;gap:0;border-bottom:2px solid var(--orange)}
+nav{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+background:var(--black);
+padding:15px 5%;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+border-bottom:2px solid var(--orange);
+}
 nav.active{display:flex}
 nav a{padding:14px 5px;border-bottom:1px solid #292929}
 nav .nav-youtube{margin-top:10px;text-align:center}
@@ -265,12 +290,12 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .header-inner{min-height:76px}
 .logo{width:46px;height:46px}
 .brand{gap:12px}
-.brand-text{font-size:18px}
+.brand-text{font-size:16px}
 .brand-text small{font-size:8px;letter-spacing:3px}
-.hero{min-height:400px}
-.hero-content{padding:50px 0 110px}
+.hero{min-height:350px}
+.hero-content{padding:45px 0 105px}
 .hero h1{font-size:34px;letter-spacing:-1px}
-.hero-description{font-size:15px}
+.hero-description{font-size:14px}
 .hero-tag{font-size:10px;letter-spacing:2px}
 .hero-bottom .container{width:94%}
 .hero-stat{padding:0 10px}
@@ -291,9 +316,8 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .footer-bottom{flex-direction:column}
 }
 
-/* SMALL PHONES */
 @media(max-width:390px){
-.brand-text{font-size:16px}
+.brand-text{font-size:15px}
 .logo{width:42px;height:42px}
 .brand{gap:10px}
 .hero h1{font-size:31px}
@@ -301,7 +325,6 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .hero-buttons .btn{padding:12px 15px;font-size:10px}
 }
 
-/* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
 .hero-slide{transition:none}
 .hero-orbit{animation:none}
@@ -314,12 +337,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <div class="topbar">
 <div class="container topbar-inner">
 <span>WELCOME TO MASABA LAND MEDIA</span>
-<span>
-CALL US:
-<a href="tel:0784079190">0784079190</a>
-&nbsp; | &nbsp;
-<a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a>
-</span>
+<span>CALL US: <a href="tel:0784079190">0784079190</a> &nbsp; | &nbsp; <a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></span>
 </div>
 </div>
 
@@ -327,10 +345,7 @@ CALL US:
 <div class="container header-inner">
 <a href="#home" class="brand">
 <img class="logo" src="masaba-logo.jpeg" alt="Masaba Land Media official logo">
-<div class="brand-text">
-MASABA <span class="orange">LAND</span>
-<small>MEDIA</small>
-</div>
+<div class="brand-text">MASABA <span class="orange">LAND</span><small>MEDIA</small></div>
 </a>
 
 <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -351,10 +366,13 @@ MASABA <span class="orange">LAND</span>
 
 <section class="hero" id="home">
 
-<!-- AUTOMATIC HOMEPAGE PHOTOGRAPHS -->
-<div class="hero-slideshow" aria-label="Masaba Land Media photographs">
+<!-- FIVE AUTOMATIC PHOTOGRAPHS -->
+<div class="hero-slideshow">
 <img class="hero-slide active" src="masaba%201.jpeg" alt="Masaba Land Media photograph one">
 <img class="hero-slide" src="masaba%202.jpeg" alt="Masaba Land Media photograph two">
+<img class="hero-slide" src="masaba%203.jpeg" alt="Masaba Land Media photograph three">
+<img class="hero-slide" src="masaba%204.jpeg" alt="Masaba Land Media photograph four">
+<img class="hero-slide" src="masaba%205.jpeg" alt="Masaba Land Media photograph five">
 </div>
 
 <div class="hero-orbit"></div>
@@ -362,13 +380,8 @@ MASABA <span class="orange">LAND</span>
 <div class="container">
 <div class="hero-content">
 <div class="hero-tag">YOUR COMMUNITY. YOUR VOICE. YOUR MEDIA.</div>
-
 <h1>MASABA<br><span>LAND</span> <span class="white">MEDIA.</span></h1>
-
-<p class="hero-description">
-Stories that connect us. Information that empowers us. A media platform dedicated to bringing our community closer.
-</p>
-
+<p class="hero-description">Stories that connect us. Information that empowers us. A media platform dedicated to bringing our community closer.</p>
 <div class="hero-buttons">
 <a href="#about" class="btn btn-orange">DISCOVER OUR STORY →</a>
 <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="btn btn-outline">▶ WATCH ON YOUTUBE</a>
@@ -378,18 +391,9 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 
 <div class="hero-bottom">
 <div class="container hero-stats">
-<div class="hero-stat">
-<strong>COMMUNITY</strong>
-<span>OUR FOUNDATION</span>
-</div>
-<div class="hero-stat">
-<strong>INFORMATION</strong>
-<span>OUR PURPOSE</span>
-</div>
-<div class="hero-stat">
-<strong>TOGETHER</strong>
-<span>OUR FUTURE</span>
-</div>
+<div class="hero-stat"><strong>COMMUNITY</strong><span>OUR FOUNDATION</span></div>
+<div class="hero-stat"><strong>INFORMATION</strong><span>OUR PURPOSE</span></div>
+<div class="hero-stat"><strong>TOGETHER</strong><span>OUR FUTURE</span></div>
 </div>
 </div>
 </section>
@@ -401,12 +405,13 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 </div>
 </div>
 
+<!-- ABOUT US -->
 <section class="section about" id="about">
 <div class="container about-grid">
 
 <div class="about-art">
 <div class="art-content">
-<img src="masaba-logo.jpeg" alt="Masaba Land Media official logo">
+<img src="masaba-logo.jpeg" alt="Masaba Land Media logo">
 <h3>MASABA <span>LAND</span></h3>
 <p>MEDIA • COMMUNITY • CONNECTION</p>
 </div>
@@ -415,41 +420,25 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <div class="about-copy">
 <div class="section-label">WHO WE ARE</div>
 <h2 class="section-title">A Voice For <span>Our Community.</span></h2>
-
 <p>Masaba Land Media is a community-focused media brand built around the power of information, communication and storytelling.</p>
-
 <p>We aim to create a platform where community voices, local developments, ideas and important conversations can reach a wider audience.</p>
-
 <p>We believe that informed communities are stronger communities. Through responsible media and meaningful engagement, we want to help shape a better tomorrow.</p>
 
 <div class="about-values">
-<div class="value">
-<strong>Our Vision</strong>
-<small>To shape our community through media.</small>
-</div>
-<div class="value">
-<strong>Our Mission</strong>
-<small>To inform, connect and engage people.</small>
-</div>
-<div class="value">
-<strong>Our Values</strong>
-<small>Integrity, responsibility and service.</small>
-</div>
-<div class="value">
-<strong>Our Promise</strong>
-<small>Stories that matter to our people.</small>
-</div>
+<div class="value"><strong>Our Vision</strong><small>To shape our community through media.</small></div>
+<div class="value"><strong>Our Mission</strong><small>To inform, connect and engage people.</small></div>
+<div class="value"><strong>Our Values</strong><small>Integrity, responsibility and service.</small></div>
+<div class="value"><strong>Our Promise</strong><small>Stories that matter to our people.</small></div>
 </div>
 
 <a href="#contact" class="btn btn-orange">CONNECT WITH US →</a>
 </div>
-
 </div>
 </section>
 
+<!-- LATEST NEWS -->
 <section class="section news" id="latest">
 <div class="container">
-
 <div class="heading-row">
 <div>
 <div class="section-label">FROM OUR NEWSROOM</div>
@@ -465,10 +454,10 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <h3>Our Newsroom Is Preparing For Publication</h3>
 <p>There are currently no published stories. Genuine news updates will appear here as they are published.</p>
 </div>
-
 </div>
 </section>
 
+<!-- VIDEOS -->
 <section class="section video-section" id="videos">
 <div class="container">
 <div class="section-label">WATCH AND CONNECT</div>
@@ -494,6 +483,7 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 </div>
 </section>
 
+<!-- ADVERTISE -->
 <section class="section advertise" id="advertise">
 <div class="container">
 <div class="section-label">GROW WITH US</div>
@@ -506,13 +496,11 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <h3>Business Promotion</h3>
 <p>Promote your products, services and business announcements through our media platform.</p>
 </div>
-
 <div class="ad-card">
 <div class="ad-icon">▶</div>
 <h3>Video Advertising</h3>
 <p>Explore promotional video opportunities and YouTube visibility for your brand.</p>
 </div>
-
 <div class="ad-card">
 <div class="ad-icon">◎</div>
 <h3>Brand Visibility</h3>
@@ -526,6 +514,7 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section contact" id="contact">
 <div class="container">
 <div class="section-label">WE WOULD LOVE TO HEAR FROM YOU</div>
@@ -533,30 +522,18 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <p class="section-subtitle">Have a story, business enquiry, partnership proposal or question? Contact Masaba Land Media.</p>
 
 <div class="contact-grid">
-
 <div class="contact-card">
 <div class="contact-item">
 <div class="contact-icon">☎</div>
-<div>
-<small>TELEPHONE</small>
-<strong><a href="tel:0784079190">0784079190</a></strong>
+<div><small>TELEPHONE</small><strong><a href="tel:0784079190">0784079190</a></strong></div>
 </div>
-</div>
-
 <div class="contact-item">
 <div class="contact-icon">✉</div>
-<div>
-<small>EMAIL ADDRESS</small>
-<strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong>
+<div><small>EMAIL ADDRESS</small><strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong></div>
 </div>
-</div>
-
 <div class="contact-item">
 <div class="contact-icon">▶</div>
-<div>
-<small>MEDIA PLATFORM</small>
-<strong>MASABA LAND MEDIA</strong>
-</div>
+<div><small>MEDIA PLATFORM</small><strong>MASABA LAND MEDIA</strong></div>
 </div>
 </div>
 
@@ -565,16 +542,15 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <p>Your voice matters. Your story matters. Reach out and let's build meaningful connections.</p>
 <a href="https://wa.me/256784079190" target="_blank" rel="noopener" class="btn btn-green">WHATSAPP OUR TEAM →</a>
 </div>
-
 </div>
 </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
 <div class="container">
-
 <div class="footer-grid">
 <div class="footer-about">
 <div class="footer-title">MASABA <span>LAND</span> MEDIA</div>
@@ -602,11 +578,11 @@ Stories that connect us. Information that empowers us. A media platform dedicate
 <span>© <span id="year"></span> MASABA LAND MEDIA. ALL RIGHTS RESERVED.</span>
 <span>LET'S SHAPE OUR COMMUNITY.</span>
 </div>
-
 </div>
 </footer>
 
 <script>
+/* MOBILE NAVIGATION */
 function toggleMenu(){
 const nav=document.getElementById('nav');
 const button=document.querySelector('.menu-button');
@@ -621,19 +597,20 @@ nav.classList.remove('active');
 button.setAttribute('aria-expanded','false');
 }
 
-document.getElementById('year').textContent=new Date().getFullYear();
+/* AUTOMATIC FIVE-PHOTO SLIDESHOW */
+const slides=document.querySelectorAll('.hero-slide');
+let activePhoto=0;
 
-/* AUTOMATIC PHOTO CHANGE EVERY 3 SECONDS */
-const heroSlides=document.querySelectorAll('.hero-slide');
-let currentSlide=0;
-
-if(heroSlides.length>1){
+if(slides.length>1){
 setInterval(function(){
-heroSlides[currentSlide].classList.remove('active');
-currentSlide=(currentSlide+1)%heroSlides.length;
-heroSlides[currentSlide].classList.add('active');
+slides[activePhoto].classList.remove('active');
+activePhoto=(activePhoto+1)%slides.length;
+slides[activePhoto].classList.add('active');
 },3000);
 }
+
+/* AUTOMATIC COPYRIGHT YEAR */
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 
 </body>
