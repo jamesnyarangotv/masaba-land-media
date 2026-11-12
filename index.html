@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MASABA LAND MEDIA | Let's Shape Our Community</title>
 <meta name="description" content="Masaba Land Media. Let's Shape Our Community. Community media, news, storytelling and advertising.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,12 +15,9 @@
 --black:#0A0A0A;
 --black2:#111111;
 --orange:#FF5A00;
---orange2:#F96D00;
 --burnt:#E85D04;
 --white:#FFFFFF;
 --cream:#FFF5E6;
---brown:#8B3A1F;
---brown2:#A34A24;
 --green:#006600;
 --bright:#22C55E;
 --forest:#0B3D2E;
@@ -41,8 +39,8 @@ img{max-width:100%;display:block}
 /* HEADER */
 header{background:var(--black);position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--orange)}
 .header-inner{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo{width:67px;height:67px}
+.brand{display:flex;align-items:center;gap:13px;flex-shrink:0}
+.logo{width:76px;height:76px;object-fit:contain;border-radius:5px}
 .brand-text{color:white;font-size:24px;font-weight:900;line-height:.95;letter-spacing:1px}
 .brand-text .orange{color:var(--orange)}
 .brand-text small{display:block;font-size:10px;letter-spacing:4px;margin-top:7px;color:#ddd}
@@ -51,40 +49,133 @@ nav a{color:white;font-size:14px;font-weight:600;transition:.25s}
 nav a:hover{color:var(--orange)}
 nav .nav-youtube{background:var(--orange);padding:11px 17px;border-radius:3px}
 nav .nav-youtube:hover{background:var(--burnt);color:white}
-.menu-button{display:none;background:transparent;border:1px solid var(--orange);color:white;padding:6px 12px;font-size:24px;border-radius:4px}
+.menu-button{display:none;background:transparent;border:1px solid var(--orange);color:white;padding:6px 12px;font-size:24px;border-radius:4px;cursor:pointer}
 
-/* HERO */
+/* CINEMATIC HERO */
 .hero{
 min-height:680px;
 position:relative;
 display:flex;
 align-items:center;
-background:
-linear-gradient(90deg,rgba(10,10,10,.97) 0%,rgba(10,10,10,.83) 45%,rgba(10,10,10,.18) 100%),
-linear-gradient(0deg,rgba(10,10,10,.55),transparent),
-url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=90') center/cover;
+overflow:hidden;
+isolation:isolate;
+background:#080808;
 }
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 65%,rgba(255,90,0,.12))}
-.hero-content{position:relative;z-index:2;padding:95px 0;max-width:800px}
+.hero::before{
+content:"";
+position:absolute;
+inset:-50%;
+z-index:-2;
+background:
+radial-gradient(ellipse at 75% 45%,rgba(255,90,0,.27),transparent 28%),
+radial-gradient(ellipse at 25% 70%,rgba(232,93,4,.16),transparent 32%),
+radial-gradient(ellipse at 55% 20%,rgba(255,255,255,.07),transparent 30%),
+linear-gradient(125deg,#050505,#15100d,#080808,#211006,#050505);
+background-size:200% 200%;
+animation:heroAtmosphere 16s ease-in-out infinite alternate;
+}
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+z-index:-1;
+opacity:.35;
+background:
+linear-gradient(115deg,transparent 35%,rgba(255,90,0,.13) 50%,transparent 65%),
+repeating-linear-gradient(120deg,transparent 0 100px,rgba(255,255,255,.018) 101px 102px);
+animation:heroLight 10s ease-in-out infinite alternate;
+}
+.hero-orbit{
+position:absolute;
+width:620px;
+height:620px;
+right:-130px;
+top:50%;
+transform:translateY(-50%);
+border:1px solid rgba(255,90,0,.18);
+border-radius:50%;
+pointer-events:none;
+animation:orbit 35s linear infinite;
+}
+.hero-orbit::before,.hero-orbit::after{
+content:"";
+position:absolute;
+border:1px solid rgba(255,90,0,.13);
+border-radius:50%;
+inset:35px;
+}
+.hero-orbit::after{inset:90px;border-color:rgba(255,255,255,.08)}
+.hero-glow{
+position:absolute;
+width:300px;
+height:300px;
+right:12%;
+top:30%;
+border-radius:50%;
+background:rgba(255,90,0,.13);
+filter:blur(100px);
+animation:glow 7s ease-in-out infinite alternate;
+pointer-events:none;
+}
+.hero-content{position:relative;z-index:3;padding:95px 0;max-width:800px}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;color:var(--orange);font-size:13px;font-weight:800;letter-spacing:4px;margin-bottom:25px}
 .hero-tag:before{content:"";width:35px;height:2px;background:var(--orange)}
 .hero h1{font-size:clamp(48px,8vw,100px);line-height:.94;letter-spacing:-3px;font-weight:900;color:white}
 .hero h1 span{color:var(--orange)}
 .hero h1 .white{color:white}
-.hero-description{font-size:20px;color:#e4e4e4;max-width:600px;margin:28px 0 32px;line-height:1.7;font-weight:400}
+.hero-description{font-size:20px;color:#e4e4e4;max-width:600px;margin:28px 0 32px;line-height:1.7}
 .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 25px;font-size:13px;font-weight:800;letter-spacing:1px;border-radius:3px;transition:.25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 25px;font-size:13px;font-weight:800;letter-spacing:1px;border-radius:3px;transition:.25s;cursor:pointer}
 .btn-orange{background:var(--orange);color:white}
 .btn-orange:hover{background:var(--burnt);transform:translateY(-3px)}
 .btn-outline{border:1px solid white;color:white}
 .btn-outline:hover{background:white;color:var(--black)}
-.hero-bottom{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,.86);border-top:1px solid rgba(255,90,0,.45)}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,.88);border-top:1px solid rgba(255,90,0,.45);z-index:4}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);padding:20px 0}
 .hero-stat{padding:0 25px;border-right:1px solid #444}
 .hero-stat:first-child{padding-left:0}
 .hero-stat:last-child{border:0}
 .hero-stat strong{color:var(--orange);font-size:17px;display:block;letter-spacing:1px}
 .hero-stat span{font-size:12px;color:#ccc;letter-spacing:1px}
+
+@keyframes heroAtmosphere{
+0%{background-position:0% 30%}
+100%{background-position:100% 70%}
+}
+@keyframes heroLight{
+0%{transform:translateX(-5%)}
+100%{transform:translateX(5%)}
+}
+@keyframes orbit{to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes glow{
+0%{opacity:.4;transform:scale(.8)}
+100%{opacity:.9;transform:scale(1.2)}
+}
+
+/* FUTURE REAL PHOTO SLIDESHOW */
+.hero-slideshow{
+position:absolute;
+inset:0;
+z-index:0;
+overflow:hidden;
+pointer-events:none;
+}
+.hero-photo{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transform:scale(1.12);
+transition:opacity 1.8s ease,transform 8s ease;
+}
+.hero-photo.active{opacity:.42;transform:scale(1)}
+.hero-photo-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.78) 55%,rgba(5,5,5,.48) 100%);
+}
 
 /* BRAND INTRO */
 .intro{background:var(--black);padding:25px 0;border-top:1px solid #262626}
@@ -103,11 +194,30 @@ url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fi
 /* ABOUT */
 .about{background:var(--cream)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
-.about-art{min-height:440px;background:var(--black);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px;border-bottom:6px solid var(--orange)}
-.about-art:before,.about-art:after{content:"";position:absolute;border:1px solid rgba(255,90,0,.2);border-radius:50%;width:350px;height:350px}
-.about-art:after{width:450px;height:450px}
-.art-content{position:relative;z-index:2;text-align:center}
-.art-content svg{width:230px;max-width:85%}
+.about-art{
+min-height:440px;
+background:
+radial-gradient(circle at center,rgba(255,90,0,.19),transparent 45%),
+linear-gradient(135deg,#080808,#18100b,#080808);
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+border-radius:5px;
+border-bottom:6px solid var(--orange);
+}
+.about-art::before,.about-art::after{
+content:"";
+position:absolute;
+border:1px solid rgba(255,90,0,.2);
+border-radius:50%;
+width:350px;height:350px;
+animation:orbit 45s linear infinite;
+}
+.about-art::after{width:450px;height:450px;animation-direction:reverse}
+.art-content{position:relative;z-index:2;text-align:center;padding:25px}
+.art-content img{width:190px;height:190px;object-fit:contain;margin:auto;border-radius:8px}
 .art-content h3{color:white;font-size:31px;font-weight:900;margin-top:20px}
 .art-content h3 span{color:var(--orange)}
 .art-content p{color:#bbb;font-size:11px;letter-spacing:5px;margin-top:6px}
@@ -117,7 +227,7 @@ url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fi
 .value strong{display:block;font-size:17px}
 .value small{color:#777;font-size:13px}
 
-/* EDITORIAL NEWS */
+/* NEWS */
 .news{background:white}
 .news-topline{height:4px;background:linear-gradient(90deg,var(--orange) 0 25%,var(--black) 25% 100%);margin-bottom:22px}
 .news-empty{background:#fffaf3;border:1px solid #f2d5bf;padding:65px 25px;text-align:center}
@@ -186,10 +296,10 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .container{width:90%}
 .topbar-inner{justify-content:center;text-align:center;flex-wrap:wrap}
 .header-inner{min-height:76px}
-.logo{width:54px;height:54px}
+.logo{width:58px;height:58px}
 .brand-text{font-size:19px}
 .brand-text small{font-size:8px;letter-spacing:3px}
-.hero{min-height:650px;background-position:58% center}
+.hero{min-height:650px}
 .hero-content{padding:75px 0 140px}
 .hero h1{letter-spacing:-2px}
 .hero-description{font-size:17px}
@@ -197,6 +307,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .hero-stat{padding:0 10px}
 .hero-stat strong{font-size:13px}
 .hero-stat span{font-size:10px}
+.hero-orbit{width:400px;height:400px;right:-230px}
 .intro-inner{flex-direction:column;text-align:center}
 .section{padding:70px 0}
 .heading-row{display:block}
@@ -211,9 +322,12 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 }
 @media(max-width:390px){
 .brand-text{font-size:16px}
-.logo{width:48px;height:48px}
+.logo{width:50px;height:50px}
 .hero h1{font-size:46px}
 .about-values{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
@@ -230,20 +344,11 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <header>
 <div class="container header-inner">
 <a href="#home" class="brand">
-<svg class="logo" viewBox="0 0 100 100" aria-label="Masaba Land Media emblem">
-<circle cx="50" cy="50" r="47" fill="#0A0A0A" stroke="#FF5A00" stroke-width="2.5"/>
-<circle cx="50" cy="41" r="29" fill="#171717" stroke="#E85D04" stroke-width="1.5"/>
-<circle cx="50" cy="25" r="7" fill="#FF5A00"/>
-<path d="M21 54L40 31L51 44L63 32L81 55L81 66L21 66Z" fill="#8B3A1F"/>
-<path d="M30 47L40 35L50 47L63 36L74 51" fill="none" stroke="#F96D00" stroke-width="2"/>
-<path d="M30 56Q50 47 72 56" fill="none" stroke="#FF5A00" stroke-width="2"/>
-<path d="M49 61Q39 72 51 77Q59 82 51 87" fill="none" stroke="white" stroke-width="2"/>
-<path d="M29 24Q35 18 41 24M60 22Q66 16 72 22" fill="none" stroke="white" stroke-width="1.5"/>
-</svg>
+<img class="logo" src="masaba-logo.jpeg" alt="Masaba Land Media official logo">
 <div class="brand-text">MASABA <span class="orange">LAND</span><small>MEDIA</small></div>
 </a>
 
-<button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+<button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
 <nav id="nav">
 <a href="#home" onclick="closeMenu()">Home</a>
@@ -260,6 +365,14 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <main>
 
 <section class="hero" id="home">
+
+<!-- Genuine photographs can be added to this slideshow later -->
+<div class="hero-slideshow" id="heroSlideshow"></div>
+<div class="hero-photo-overlay"></div>
+
+<div class="hero-orbit"></div>
+<div class="hero-glow"></div>
+
 <div class="container">
 <div class="hero-content">
 <div class="hero-tag">YOUR COMMUNITY. YOUR VOICE. YOUR MEDIA.</div>
@@ -271,6 +384,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 </div>
 </div>
 </div>
+
 <div class="hero-bottom">
 <div class="container hero-stats">
 <div class="hero-stat"><strong>COMMUNITY</strong><span>OUR FOUNDATION</span></div>
@@ -289,34 +403,29 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 
 <section class="section about" id="about">
 <div class="container about-grid">
+
 <div class="about-art">
 <div class="art-content">
-<svg viewBox="0 0 300 260" aria-label="Mountain, sun, birds and road illustration">
-<circle cx="150" cy="115" r="100" fill="#111" stroke="#FF5A00" stroke-width="3"/>
-<circle cx="150" cy="55" r="18" fill="#FF5A00"/>
-<path d="M65 153L119 80L158 130L190 95L238 153Z" fill="#8B3A1F"/>
-<path d="M104 100L119 80L137 104L124 98Z" fill="#FFF5E6"/>
-<path d="M151 119L190 95L210 117L193 110Z" fill="#FFF5E6"/>
-<path d="M68 157Q150 127 233 157" fill="none" stroke="#FF5A00" stroke-width="4"/>
-<path d="M146 155Q129 180 151 193Q171 207 148 222" fill="none" stroke="white" stroke-width="4"/>
-<path d="M91 66Q99 55 108 66M194 63Q203 52 212 63" fill="none" stroke="white" stroke-width="3"/>
-</svg>
+<img src="masaba-logo.jpeg" alt="Masaba Land Media official logo">
 <h3>MASABA <span>LAND</span></h3>
 <p>MEDIA • COMMUNITY • CONNECTION</p>
 </div>
 </div>
+
 <div class="about-copy">
 <div class="section-label">WHO WE ARE</div>
 <h2 class="section-title">A Voice For <span>Our Community.</span></h2>
 <p>Masaba Land Media is a community-focused media brand built around the power of information, communication and storytelling.</p>
 <p>We aim to create a platform where community voices, local developments, ideas and important conversations can reach a wider audience.</p>
 <p>We believe that informed communities are stronger communities. Through responsible media and meaningful engagement, we want to help shape a better tomorrow.</p>
+
 <div class="about-values">
 <div class="value"><strong>Our Vision</strong><small>To shape our community through media.</small></div>
 <div class="value"><strong>Our Mission</strong><small>To inform, connect and engage people.</small></div>
 <div class="value"><strong>Our Values</strong><small>Integrity, responsibility and service.</small></div>
 <div class="value"><strong>Our Promise</strong><small>Stories that matter to our people.</small></div>
 </div>
+
 <a href="#contact" class="btn btn-orange">CONNECT WITH US →</a>
 </div>
 </div>
@@ -332,6 +441,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 </div>
 <div class="section-label">MASABA LAND MEDIA</div>
 </div>
+
 <div class="news-topline"></div>
 <div class="news-empty">
 <div class="news-empty-icon">▤</div>
@@ -346,6 +456,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <div class="section-label">WATCH AND CONNECT</div>
 <h2 class="section-title">Masaba Land <span>On Screen.</span></h2>
 <p class="section-subtitle">Discover our video stories, conversations and community coverage on YouTube.</p>
+
 <div class="video-layout">
 <div class="video-main">
 <div class="video-placeholder">
@@ -354,6 +465,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <p>Our YouTube video showcase will appear here.</p>
 </div>
 </div>
+
 <div class="video-side">
 <div class="section-label">OUR YOUTUBE CHANNEL</div>
 <h3>Be Part Of The Conversation.</h3>
@@ -369,11 +481,27 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <div class="section-label">GROW WITH US</div>
 <h2 class="section-title">Advertise With <span>Masaba Land.</span></h2>
 <p class="section-subtitle">Give your business, organisation or brand an opportunity to connect with our audience through media and promotional opportunities.</p>
+
 <div class="ad-cards">
-<div class="ad-card"><div class="ad-icon">▣</div><h3>Business Promotion</h3><p>Promote your products, services and business announcements through our media platform.</p></div>
-<div class="ad-card"><div class="ad-icon">▶</div><h3>Video Advertising</h3><p>Explore promotional video opportunities and YouTube visibility for your brand.</p></div>
-<div class="ad-card"><div class="ad-icon">◎</div><h3>Brand Visibility</h3><p>Build awareness, communicate your message and connect with the community.</p></div>
+<div class="ad-card">
+<div class="ad-icon">▣</div>
+<h3>Business Promotion</h3>
+<p>Promote your products, services and business announcements through our media platform.</p>
 </div>
+
+<div class="ad-card">
+<div class="ad-icon">▶</div>
+<h3>Video Advertising</h3>
+<p>Explore promotional video opportunities and YouTube visibility for your brand.</p>
+</div>
+
+<div class="ad-card">
+<div class="ad-icon">◎</div>
+<h3>Brand Visibility</h3>
+<p>Build awareness, communicate your message and connect with the community.</p>
+</div>
+</div>
+
 <div style="margin-top:35px">
 <a href="mailto:umarongu@gmail.com?subject=Masaba%20Land%20Media%20Advertising%20Enquiry" class="btn btn-orange">DISCUSS ADVERTISING →</a>
 </div>
@@ -385,12 +513,25 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <div class="section-label">WE WOULD LOVE TO HEAR FROM YOU</div>
 <h2 class="section-title">Let's <span>Talk.</span></h2>
 <p class="section-subtitle">Have a story, business enquiry, partnership proposal or question? Contact Masaba Land Media.</p>
+
 <div class="contact-grid">
 <div class="contact-card">
-<div class="contact-item"><div class="contact-icon">☎</div><div><small>TELEPHONE</small><strong><a href="tel:0784079190">0784079190</a></strong></div></div>
-<div class="contact-item"><div class="contact-icon">✉</div><div><small>EMAIL ADDRESS</small><strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong></div></div>
-<div class="contact-item"><div class="contact-icon">▶</div><div><small>MEDIA PLATFORM</small><strong>MASABA LAND MEDIA</strong></div></div>
+<div class="contact-item">
+<div class="contact-icon">☎</div>
+<div><small>TELEPHONE</small><strong><a href="tel:0784079190">0784079190</a></strong></div>
 </div>
+
+<div class="contact-item">
+<div class="contact-icon">✉</div>
+<div><small>EMAIL ADDRESS</small><strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong></div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">▶</div>
+<div><small>MEDIA PLATFORM</small><strong>MASABA LAND MEDIA</strong></div>
+</div>
+</div>
+
 <div class="contact-message">
 <h3>Let's Shape Our Community Together.</h3>
 <p>Your voice matters. Your story matters. Reach out and let's build meaningful connections.</p>
@@ -405,10 +546,12 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <footer>
 <div class="container">
 <div class="footer-grid">
+
 <div class="footer-about">
 <div class="footer-title">MASABA <span>LAND</span> MEDIA</div>
 <p>Let's Shape Our Community. A community-focused media brand committed to information, storytelling, connection and meaningful engagement.</p>
 </div>
+
 <div class="footer-links">
 <h3>EXPLORE</h3>
 <a href="#home">Home</a>
@@ -417,13 +560,16 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <a href="#videos">Videos</a>
 <a href="#advertise">Advertise</a>
 </div>
+
 <div class="footer-links">
 <h3>GET IN TOUCH</h3>
 <a href="tel:0784079190">0784079190</a>
 <a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a>
 <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube Channel</a>
 </div>
+
 </div>
+
 <div class="footer-bottom">
 <span>© <span id="year"></span> MASABA LAND MEDIA. ALL RIGHTS RESERVED.</span>
 <span>LET'S SHAPE OUR COMMUNITY.</span>
@@ -433,12 +579,72 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 
 <script>
 function toggleMenu(){
-document.getElementById('nav').classList.toggle('active');
+const nav=document.getElementById('nav');
+const button=document.querySelector('.menu-button');
+nav.classList.toggle('active');
+button.setAttribute('aria-expanded',nav.classList.contains('active'));
 }
+
 function closeMenu(){
-document.getElementById('nav').classList.remove('active');
+const nav=document.getElementById('nav');
+const button=document.querySelector('.menu-button');
+nav.classList.remove('active');
+button.setAttribute('aria-expanded','false');
 }
+
 document.getElementById('year').textContent=new Date().getFullYear();
+
+/*
+FUTURE PHOTO SLIDESHOW
+
+When genuine photographs are uploaded to GitHub,
+add their exact filenames to this array.
+
+Example:
+const heroPhotos = [
+  'community-event.jpeg',
+  'masaba-interview.jpeg',
+  'news-coverage.jpeg'
+];
+
+The images will automatically rotate with smooth
+crossfade and cinematic zoom effects.
+*/
+
+const heroPhotos = [];
+
+const slideshow=document.getElementById('heroSlideshow');
+let currentPhoto=0;
+
+function showHeroPhotos(){
+if(!heroPhotos.length)return;
+
+heroPhotos.forEach((filename,index)=>{
+const image=document.createElement('img');
+image.src=filename;
+image.alt='Masaba Land Media community photography';
+image.className='hero-photo';
+if(index===0)image.classList.add('active');
+
+image.onerror=()=>image.remove();
+
+slideshow.appendChild(image);
+});
+
+const photos=slideshow.querySelectorAll('.hero-photo');
+if(!photos.length)return;
+
+setInterval(()=>{
+const available=slideshow.querySelectorAll('.hero-photo');
+if(available.length<2)return;
+
+available[currentPhoto]?.classList.remove('active');
+currentPhoto=(currentPhoto+1)%available.length;
+available[currentPhoto]?.classList.add('active');
+},6500);
+}
+
+showHeroPhotos();
 </script>
 
 </body>
