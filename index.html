@@ -21,7 +21,6 @@
 --forest:#0B3D2E;
 --lightgreen:#E8F5E9;
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{font-family:'Jost',sans-serif;color:var(--black);background:white;overflow-x:hidden}
@@ -43,7 +42,6 @@ header{background:var(--black);position:sticky;top:0;z-index:1000;border-bottom:
 .brand-text{color:white;font-size:19px;font-weight:900;line-height:1;letter-spacing:.5px}
 .brand-text .orange{color:var(--orange)}
 .brand-text small{display:block;font-size:9px;letter-spacing:4px;margin-top:7px;color:#ddd}
-
 nav{display:flex;align-items:center;gap:23px}
 nav a{color:white;font-size:14px;font-weight:600;transition:.25s}
 nav a:hover{color:var(--orange)}
@@ -52,84 +50,16 @@ nav .nav-youtube:hover{background:var(--burnt);color:white}
 .menu-button{display:none;background:transparent;border:1px solid var(--orange);color:white;padding:6px 12px;font-size:24px;border-radius:4px}
 
 /* HERO SLIDESHOW */
-.hero{
-min-height:390px;
-position:relative;
-display:flex;
-align-items:center;
-overflow:hidden;
-isolation:isolate;
-background:#080808;
-}
-
-.hero-slideshow{
-position:absolute;
-inset:0;
-z-index:-2;
-background:#080808;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.hero-slide{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:contain;
-object-position:center;
-opacity:0;
-transition:opacity 1.4s ease-in-out;
-}
-
+.hero{min-height:390px;position:relative;display:flex;align-items:center;overflow:hidden;isolation:isolate;background:#080808}
+.hero-slideshow{position:absolute;inset:0;z-index:-2;background:#080808;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transition:opacity 1.4s ease-in-out}
 .hero-slide.active{opacity:1}
-
-.hero:before{
-content:"";
-position:absolute;
-inset:0;
-z-index:-1;
-background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.24),rgba(0,0,0,.55));
-pointer-events:none;
-}
-
-.hero:after{
-content:"";
-position:absolute;
-inset:0;
-z-index:-1;
-background:repeating-linear-gradient(120deg,transparent 0 100px,rgba(255,255,255,.018) 101px 102px);
-pointer-events:none;
-}
-
-.hero-orbit{
-position:absolute;
-width:500px;
-height:500px;
-right:-100px;
-top:50%;
-transform:translateY(-50%);
-border:1px solid rgba(255,90,0,.18);
-border-radius:50%;
-pointer-events:none;
-animation:orbit 35s linear infinite;
-}
-
-.hero-orbit:before,.hero-orbit:after{
-content:"";
-position:absolute;
-border:1px solid rgba(255,90,0,.13);
-border-radius:50%;
-inset:35px;
-}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.24),rgba(0,0,0,.55));pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(120deg,transparent 0 100px,rgba(255,255,255,.018) 101px 102px);pointer-events:none}
+.hero-orbit{position:absolute;width:500px;height:500px;right:-100px;top:50%;transform:translateY(-50%);border:1px solid rgba(255,90,0,.18);border-radius:50%;pointer-events:none;animation:orbit 35s linear infinite}
+.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border:1px solid rgba(255,90,0,.13);border-radius:50%;inset:35px}
 .hero-orbit:after{inset:90px;border-color:rgba(255,255,255,.08)}
-
-@keyframes orbit{
-to{transform:translateY(-50%) rotate(360deg)}
-}
-
+@keyframes orbit{to{transform:translateY(-50%) rotate(360deg)}}
 .hero-content{position:relative;z-index:3;padding:50px 0 105px;max-width:680px}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;color:var(--orange);font-size:12px;font-weight:800;letter-spacing:3px;margin-bottom:17px}
 .hero-tag:before{content:"";width:30px;height:2px;background:var(--orange)}
@@ -138,13 +68,11 @@ to{transform:translateY(-50%) rotate(360deg)}
 .hero h1 .white{color:white}
 .hero-description{font-size:15px;color:#fff;max-width:500px;margin:17px 0 23px;line-height:1.7}
 .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 23px;font-size:12px;font-weight:800;letter-spacing:1px;border-radius:3px;transition:.25s}
 .btn-orange{background:var(--orange);color:white}
 .btn-orange:hover{background:var(--burnt);transform:translateY(-3px)}
 .btn-outline{border:1px solid white;color:white}
 .btn-outline:hover{background:white;color:var(--black)}
-
 .hero-bottom{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,.88);border-top:1px solid rgba(255,90,0,.45);z-index:4}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);padding:15px 0}
 .hero-stat{padding:0 25px;border-right:1px solid #444}
@@ -170,48 +98,39 @@ to{transform:translateY(-50%) rotate(360deg)}
 /* ABOUT US */
 .about{background:var(--cream)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-
-.about-art{
-min-height:380px;
-background:radial-gradient(circle at center,rgba(255,90,0,.19),transparent 45%),linear-gradient(135deg,#080808,#18100b,#080808);
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-border-radius:5px;
-border-bottom:6px solid var(--orange);
-}
-
-.about-art:before,.about-art:after{
-content:"";
-position:absolute;
-border:1px solid rgba(255,90,0,.2);
-border-radius:50%;
-width:300px;
-height:300px;
-}
+.about-art{min-height:380px;background:radial-gradient(circle at center,rgba(255,90,0,.19),transparent 45%),linear-gradient(135deg,#080808,#18100b,#080808);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px;border-bottom:6px solid var(--orange)}
+.about-art:before,.about-art:after{content:"";position:absolute;border:1px solid rgba(255,90,0,.2);border-radius:50%;width:300px;height:300px}
 .about-art:after{width:400px;height:400px}
-
 .art-content{position:relative;z-index:2;text-align:center;padding:25px}
 .art-content img{width:125px;height:125px;object-fit:contain;margin:auto;border-radius:8px}
 .art-content h3{color:white;font-size:26px;font-weight:900;margin-top:17px}
 .art-content h3 span{color:var(--orange)}
 .art-content p{color:#bbb;font-size:10px;letter-spacing:4px;margin-top:6px}
-
 .about-copy p{color:#555;font-size:16px;margin:18px 0;line-height:1.9}
 .about-values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}
 .value{background:white;padding:18px;border-left:4px solid var(--orange);box-shadow:0 5px 20px rgba(0,0,0,.04)}
 .value strong{display:block;font-size:16px}
 .value small{color:#777;font-size:13px}
 
-/* NEWS */
-.news{background:white}
-.news-topline{height:4px;background:linear-gradient(90deg,var(--orange) 0 25%,var(--black) 25% 100%);margin-bottom:22px}
-.news-empty{background:#fffaf3;border:1px solid #f2d5bf;padding:60px 25px;text-align:center}
-.news-empty-icon{font-size:42px;color:var(--orange)}
-.news-empty h3{font-size:24px;margin:15px 0 7px}
-.news-empty p{color:#777}
+/* NEWSROOM */
+.news{background:#f5f6f8}
+.news .section-title{color:#101820}
+.news .section-subtitle{color:#68727d}
+.news-topline{height:5px;background:linear-gradient(90deg,var(--orange) 0 22%,#101820 22% 100%);margin-bottom:25px}
+.newsroom-intro{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:25px 28px;background:#101820;color:white;border-left:5px solid var(--orange);margin-bottom:28px}
+.newsroom-intro strong{display:block;font-size:19px;letter-spacing:.5px}
+.newsroom-intro p{color:#d5dce2;font-size:14px;line-height:1.7;margin-top:6px;max-width:650px}
+.newsroom-tag{color:var(--orange);font-size:11px;font-weight:900;letter-spacing:2px;white-space:nowrap}
+.news-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:25px 0 30px}
+.news-category{background:white;padding:22px 18px;border:1px solid #e4e8ec;border-bottom:3px solid var(--orange);min-height:112px;transition:.25s}
+.news-category:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.07)}
+.news-category span{display:block;color:var(--orange);font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:9px}
+.news-category strong{font-size:17px;color:#101820}
+.news-empty{background:white;border:1px solid #e2e6ea;padding:48px 25px;text-align:center}
+.news-empty-icon{width:58px;height:58px;border-radius:50%;background:#fff0e8;color:var(--orange);display:grid;place-items:center;font-size:27px;margin:0 auto 16px}
+.news-empty h3{font-size:23px;color:#101820;margin-bottom:9px}
+.news-empty p{color:#68727d;max-width:620px;margin:0 auto;line-height:1.8;font-size:14px}
+.news-empty .news-note{display:inline-block;margin-top:18px;padding:9px 14px;background:#fff5ed;color:#a83c00;font-size:11px;font-weight:800;letter-spacing:1px}
 
 /* VIDEOS */
 .video-section{background:var(--black2);color:white}
@@ -264,19 +183,7 @@ footer p,footer a{font-size:14px;color:#d5e4da;line-height:1.9}
 /* TABLET */
 @media(max-width:950px){
 .menu-button{display:block}
-nav{
-display:none;
-position:absolute;
-top:100%;
-left:0;
-right:0;
-background:var(--black);
-padding:15px 5%;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-border-bottom:2px solid var(--orange);
-}
+nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--black);padding:15px 5%;flex-direction:column;align-items:stretch;gap:0;border-bottom:2px solid var(--orange)}
 nav.active{display:flex}
 nav a{padding:14px 5px;border-bottom:1px solid #292929}
 nav .nav-youtube{margin-top:10px;text-align:center}
@@ -314,6 +221,12 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .contact-card,.contact-message{padding:27px 22px}
 .footer-grid{grid-template-columns:1fr;gap:32px}
 .footer-bottom{flex-direction:column}
+.newsroom-intro{display:block;padding:22px}
+.newsroom-tag{display:block;margin-top:14px}
+.news-category-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.news-category{padding:18px 14px;min-height:100px}
+.news-category strong{font-size:15px}
+.news-empty{padding:38px 18px}
 }
 
 @media(max-width:390px){
@@ -322,6 +235,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 .brand{gap:10px}
 .hero h1{font-size:31px}
 .about-values{grid-template-columns:1fr}
+.news-category-grid{grid-template-columns:1fr 1fr}
 .hero-buttons .btn{padding:12px 15px;font-size:10px}
 }
 
@@ -365,8 +279,6 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <main>
 
 <section class="hero" id="home">
-
-<!-- FIVE AUTOMATIC PHOTOGRAPHS -->
 <div class="hero-slideshow">
 <img class="hero-slide active" src="masaba%201.jpeg" alt="Masaba Land Media photograph one">
 <img class="hero-slide" src="masaba%202.jpeg" alt="Masaba Land Media photograph two">
@@ -408,7 +320,6 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <!-- ABOUT US -->
 <section class="section about" id="about">
 <div class="container about-grid">
-
 <div class="about-art">
 <div class="art-content">
 <img src="masaba-logo.jpeg" alt="Masaba Land Media logo">
@@ -436,23 +347,44 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 </div>
 </section>
 
-<!-- LATEST NEWS -->
+<!-- LATEST NEWS / NEWSROOM -->
 <section class="section news" id="latest">
 <div class="container">
 <div class="heading-row">
 <div>
 <div class="section-label">FROM OUR NEWSROOM</div>
 <h2 class="section-title">Latest <span>News.</span></h2>
-<p class="section-subtitle">Community stories, developments and important updates.</p>
+<p class="section-subtitle">Local voices, important updates and stories that shape our community.</p>
 </div>
 <div class="section-label">MASABA LAND MEDIA</div>
 </div>
 
 <div class="news-topline"></div>
+
+<div class="newsroom-intro">
+<div>
+<strong>NEWS THAT MATTERS TO OUR COMMUNITY.</strong>
+<p>Follow community affairs, public information and developments from across our region and beyond. We are preparing this newsroom for verified stories and responsible reporting.</p>
+</div>
+<div class="newsroom-tag">INFORM • CONNECT • INSPIRE</div>
+</div>
+
+<div class="news-category-grid">
+<div class="news-category"><span>01 / COMMUNITY</span><strong>Community News</strong></div>
+<div class="news-category"><span>02 / LEADERSHIP</span><strong>Politics</strong></div>
+<div class="news-category"><span>03 / LEARNING</span><strong>Education</strong></div>
+<div class="news-category"><span>04 / ENTERPRISE</span><strong>Business</strong></div>
+<div class="news-category"><span>05 / FOOD & FARMING</span><strong>Agriculture</strong></div>
+<div class="news-category"><span>06 / WELLBEING</span><strong>Health</strong></div>
+<div class="news-category"><span>07 / UGANDA</span><strong>National News</strong></div>
+<div class="news-category"><span>08 / PROGRESS</span><strong>Local Development</strong></div>
+</div>
+
 <div class="news-empty">
 <div class="news-empty-icon">▤</div>
-<h3>Our Newsroom Is Preparing For Publication</h3>
-<p>There are currently no published stories. Genuine news updates will appear here as they are published.</p>
+<h3>Our Newsroom Is Getting Ready.</h3>
+<p>There are no published stories yet. Once the first verified reports are added, they can be displayed here with photographs, headlines, categories, publication dates and links to read the full stories.</p>
+<span class="news-note">NO SPORTS CATEGORY • COMMUNITY-FOCUSED NEWS</span>
 </div>
 </div>
 </section>
