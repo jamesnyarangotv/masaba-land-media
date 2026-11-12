@@ -23,73 +23,177 @@
 --forest:#0B3D2E;
 --lightgreen:#E8F5E9;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{font-family:'Jost',sans-serif;color:var(--black);background:white;overflow-x:hidden}
+
+html{
+scroll-behavior:smooth;
+scroll-padding-top:95px;
+}
+
+body{
+font-family:'Jost',sans-serif;
+color:var(--black);
+background:white;
+overflow-x:hidden;
+}
+
 a{text-decoration:none;color:inherit}
-button{font-family:inherit}
+button{font-family:inherit;cursor:pointer}
 img{max-width:100%;display:block}
 .container{width:min(1240px,90%);margin:auto}
 
 /* TOP BAR */
-.topbar{background:var(--forest);color:white;font-size:12px;padding:8px 0}
-.topbar-inner{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.topbar{
+background:var(--forest);
+color:white;
+font-size:12px;
+padding:8px 0;
+}
+
+.topbar-inner{
+display:flex;
+justify-content:space-between;
+gap:15px;
+align-items:center;
+}
+
 .topbar a{color:#9df2ae}
 
 /* HEADER */
-header{background:var(--black);position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--orange)}
-.header-inner{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.brand{display:flex;align-items:center;gap:13px;flex-shrink:0}
-.logo{width:76px;height:76px;object-fit:contain;border-radius:5px}
-.brand-text{color:white;font-size:24px;font-weight:900;line-height:.95;letter-spacing:1px}
-.brand-text .orange{color:var(--orange)}
-.brand-text small{display:block;font-size:10px;letter-spacing:4px;margin-top:7px;color:#ddd}
-nav{display:flex;align-items:center;gap:23px}
-nav a{color:white;font-size:14px;font-weight:600;transition:.25s}
-nav a:hover{color:var(--orange)}
-nav .nav-youtube{background:var(--orange);padding:11px 17px;border-radius:3px}
-nav .nav-youtube:hover{background:var(--burnt);color:white}
-.menu-button{display:none;background:transparent;border:1px solid var(--orange);color:white;padding:6px 12px;font-size:24px;border-radius:4px;cursor:pointer}
+header{
+background:var(--black);
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:2px solid var(--orange);
+}
 
-/* CINEMATIC HERO */
+.header-inner{
+min-height:88px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
+flex-shrink:0;
+}
+
+.logo{
+width:76px;
+height:76px;
+object-fit:contain;
+border-radius:5px;
+}
+
+.brand-text{
+color:white;
+font-size:24px;
+font-weight:900;
+line-height:.95;
+letter-spacing:1px;
+}
+
+.brand-text .orange{color:var(--orange)}
+
+.brand-text small{
+display:block;
+font-size:10px;
+letter-spacing:4px;
+margin-top:7px;
+color:#ddd;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:23px;
+}
+
+nav a{
+color:white;
+font-size:14px;
+font-weight:600;
+transition:.25s;
+}
+
+nav a:hover{color:var(--orange)}
+
+nav .nav-youtube{
+background:var(--orange);
+padding:11px 17px;
+border-radius:3px;
+}
+
+nav .nav-youtube:hover{
+background:var(--burnt);
+color:white;
+}
+
+.menu-button{
+display:none;
+background:transparent;
+border:1px solid var(--orange);
+color:white;
+padding:6px 12px;
+font-size:24px;
+border-radius:4px;
+}
+
+/* HERO */
 .hero{
-min-height:680px;
+min-height:480px;
 position:relative;
 display:flex;
 align-items:center;
 overflow:hidden;
 isolation:isolate;
-background:#080808;
+background:
+radial-gradient(ellipse at 78% 40%,rgba(255,90,0,.20),transparent 35%),
+radial-gradient(ellipse at 30% 80%,rgba(232,93,4,.12),transparent 35%),
+linear-gradient(120deg,#050505,#17100b,#080808);
 }
-.hero::before{
+
+.hero:before{
 content:"";
 position:absolute;
 inset:-50%;
-z-index:-2;
+z-index:-1;
 background:
-radial-gradient(ellipse at 75% 45%,rgba(255,90,0,.27),transparent 28%),
-radial-gradient(ellipse at 25% 70%,rgba(232,93,4,.16),transparent 32%),
-radial-gradient(ellipse at 55% 20%,rgba(255,255,255,.07),transparent 30%),
-linear-gradient(125deg,#050505,#15100d,#080808,#211006,#050505);
+radial-gradient(ellipse at 70% 45%,rgba(255,90,0,.16),transparent 30%),
+linear-gradient(125deg,#050505,#15100d,#080808,#211006);
 background-size:200% 200%;
-animation:heroAtmosphere 16s ease-in-out infinite alternate;
+animation:atmosphere 16s ease-in-out infinite alternate;
 }
-.hero::after{
+
+.hero:after{
 content:"";
 position:absolute;
 inset:0;
 z-index:-1;
-opacity:.35;
 background:
-linear-gradient(115deg,transparent 35%,rgba(255,90,0,.13) 50%,transparent 65%),
-repeating-linear-gradient(120deg,transparent 0 100px,rgba(255,255,255,.018) 101px 102px);
-animation:heroLight 10s ease-in-out infinite alternate;
+repeating-linear-gradient(
+120deg,
+transparent 0 100px,
+rgba(255,255,255,.018) 101px 102px
+);
 }
+
+@keyframes atmosphere{
+0%{background-position:0% 30%}
+100%{background-position:100% 70%}
+}
+
 .hero-orbit{
 position:absolute;
-width:620px;
-height:620px;
-right:-130px;
+width:520px;
+height:520px;
+right:-100px;
 top:50%;
 transform:translateY(-50%);
 border:1px solid rgba(255,90,0,.18);
@@ -97,105 +201,216 @@ border-radius:50%;
 pointer-events:none;
 animation:orbit 35s linear infinite;
 }
-.hero-orbit::before,.hero-orbit::after{
+
+.hero-orbit:before,
+.hero-orbit:after{
 content:"";
 position:absolute;
 border:1px solid rgba(255,90,0,.13);
 border-radius:50%;
 inset:35px;
 }
-.hero-orbit::after{inset:90px;border-color:rgba(255,255,255,.08)}
-.hero-glow{
-position:absolute;
-width:300px;
-height:300px;
-right:12%;
-top:30%;
-border-radius:50%;
-background:rgba(255,90,0,.13);
-filter:blur(100px);
-animation:glow 7s ease-in-out infinite alternate;
-pointer-events:none;
+
+.hero-orbit:after{
+inset:90px;
+border-color:rgba(255,255,255,.08);
 }
-.hero-content{position:relative;z-index:3;padding:95px 0;max-width:800px}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;color:var(--orange);font-size:13px;font-weight:800;letter-spacing:4px;margin-bottom:25px}
-.hero-tag:before{content:"";width:35px;height:2px;background:var(--orange)}
-.hero h1{font-size:clamp(48px,8vw,100px);line-height:.94;letter-spacing:-3px;font-weight:900;color:white}
+
+@keyframes orbit{
+to{transform:translateY(-50%) rotate(360deg)}
+}
+
+/* HERO CONTENT - REDUCED SIZE */
+.hero-content{
+position:relative;
+z-index:3;
+padding:65px 0 120px;
+max-width:680px;
+}
+
+.hero-tag{
+display:inline-flex;
+align-items:center;
+gap:10px;
+color:var(--orange);
+font-size:12px;
+font-weight:800;
+letter-spacing:3px;
+margin-bottom:20px;
+}
+
+.hero-tag:before{
+content:"";
+width:30px;
+height:2px;
+background:var(--orange);
+}
+
+.hero h1{
+font-size:clamp(34px,5vw,60px);
+line-height:1.05;
+letter-spacing:-1.5px;
+font-weight:900;
+color:white;
+}
+
 .hero h1 span{color:var(--orange)}
 .hero h1 .white{color:white}
-.hero-description{font-size:20px;color:#e4e4e4;max-width:600px;margin:28px 0 32px;line-height:1.7}
-.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 25px;font-size:13px;font-weight:800;letter-spacing:1px;border-radius:3px;transition:.25s;cursor:pointer}
-.btn-orange{background:var(--orange);color:white}
-.btn-orange:hover{background:var(--burnt);transform:translateY(-3px)}
-.btn-outline{border:1px solid white;color:white}
-.btn-outline:hover{background:white;color:var(--black)}
-.hero-bottom{position:absolute;bottom:0;left:0;right:0;background:rgba(10,10,10,.88);border-top:1px solid rgba(255,90,0,.45);z-index:4}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);padding:20px 0}
-.hero-stat{padding:0 25px;border-right:1px solid #444}
+
+.hero-description{
+font-size:16px;
+color:#e4e4e4;
+max-width:500px;
+margin:20px 0 25px;
+line-height:1.7;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+padding:13px 23px;
+font-size:12px;
+font-weight:800;
+letter-spacing:1px;
+border-radius:3px;
+transition:.25s;
+}
+
+.btn-orange{
+background:var(--orange);
+color:white;
+}
+
+.btn-orange:hover{
+background:var(--burnt);
+transform:translateY(-3px);
+}
+
+.btn-outline{
+border:1px solid white;
+color:white;
+}
+
+.btn-outline:hover{
+background:white;
+color:var(--black);
+}
+
+.hero-bottom{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+background:rgba(10,10,10,.88);
+border-top:1px solid rgba(255,90,0,.45);
+z-index:4;
+}
+
+.hero-stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+padding:17px 0;
+}
+
+.hero-stat{
+padding:0 25px;
+border-right:1px solid #444;
+}
+
 .hero-stat:first-child{padding-left:0}
 .hero-stat:last-child{border:0}
-.hero-stat strong{color:var(--orange);font-size:17px;display:block;letter-spacing:1px}
-.hero-stat span{font-size:12px;color:#ccc;letter-spacing:1px}
 
-@keyframes heroAtmosphere{
-0%{background-position:0% 30%}
-100%{background-position:100% 70%}
-}
-@keyframes heroLight{
-0%{transform:translateX(-5%)}
-100%{transform:translateX(5%)}
-}
-@keyframes orbit{to{transform:translateY(-50%) rotate(360deg)}}
-@keyframes glow{
-0%{opacity:.4;transform:scale(.8)}
-100%{opacity:.9;transform:scale(1.2)}
+.hero-stat strong{
+color:var(--orange);
+font-size:16px;
+display:block;
+letter-spacing:1px;
 }
 
-/* FUTURE REAL PHOTO SLIDESHOW */
-.hero-slideshow{
-position:absolute;
-inset:0;
-z-index:0;
-overflow:hidden;
-pointer-events:none;
-}
-.hero-photo{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transform:scale(1.12);
-transition:opacity 1.8s ease,transform 8s ease;
-}
-.hero-photo.active{opacity:.42;transform:scale(1)}
-.hero-photo-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.78) 55%,rgba(5,5,5,.48) 100%);
+.hero-stat span{
+font-size:11px;
+color:#ccc;
+letter-spacing:1px;
 }
 
-/* BRAND INTRO */
-.intro{background:var(--black);padding:25px 0;border-top:1px solid #262626}
-.intro-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.intro p{color:#ddd;font-size:14px;letter-spacing:2px;font-weight:600}
+/* INTRO */
+.intro{
+background:var(--black);
+padding:25px 0;
+border-top:1px solid #262626;
+}
+
+.intro-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.intro p{
+color:#ddd;
+font-size:13px;
+letter-spacing:2px;
+font-weight:600;
+}
+
 .intro strong{color:var(--orange)}
 
-/* SECTIONS */
-.section{padding:100px 0}
-.section-label{color:var(--orange);font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase}
-.section-title{font-size:clamp(34px,5vw,53px);font-weight:900;line-height:1.1;margin-top:10px}
+/* GENERAL SECTIONS */
+.section{padding:85px 0}
+
+.section-label{
+color:var(--orange);
+font-size:12px;
+font-weight:900;
+letter-spacing:4px;
+text-transform:uppercase;
+}
+
+.section-title{
+font-size:clamp(32px,5vw,50px);
+font-weight:900;
+line-height:1.1;
+margin-top:10px;
+}
+
 .section-title span{color:var(--orange)}
-.section-subtitle{color:#686868;font-size:17px;max-width:650px;margin-top:16px}
-.heading-row{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:42px}
+
+.section-subtitle{
+color:#686868;
+font-size:16px;
+max-width:650px;
+margin-top:16px;
+}
+
+.heading-row{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:25px;
+margin-bottom:42px;
+}
 
 /* ABOUT */
 .about{background:var(--cream)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:55px;
+align-items:center;
+}
+
 .about-art{
-min-height:440px;
+min-height:400px;
 background:
 radial-gradient(circle at center,rgba(255,90,0,.19),transparent 45%),
 linear-gradient(135deg,#080808,#18100b,#080808);
@@ -207,145 +422,525 @@ overflow:hidden;
 border-radius:5px;
 border-bottom:6px solid var(--orange);
 }
-.about-art::before,.about-art::after{
+
+.about-art:before,
+.about-art:after{
 content:"";
 position:absolute;
 border:1px solid rgba(255,90,0,.2);
 border-radius:50%;
-width:350px;height:350px;
-animation:orbit 45s linear infinite;
+width:300px;
+height:300px;
 }
-.about-art::after{width:450px;height:450px;animation-direction:reverse}
-.art-content{position:relative;z-index:2;text-align:center;padding:25px}
-.art-content img{width:190px;height:190px;object-fit:contain;margin:auto;border-radius:8px}
-.art-content h3{color:white;font-size:31px;font-weight:900;margin-top:20px}
+
+.about-art:after{
+width:400px;
+height:400px;
+}
+
+.art-content{
+position:relative;
+z-index:2;
+text-align:center;
+padding:25px;
+}
+
+.art-content img{
+width:170px;
+height:170px;
+object-fit:contain;
+margin:auto;
+border-radius:8px;
+}
+
+.art-content h3{
+color:white;
+font-size:29px;
+font-weight:900;
+margin-top:20px;
+}
+
 .art-content h3 span{color:var(--orange)}
-.art-content p{color:#bbb;font-size:11px;letter-spacing:5px;margin-top:6px}
-.about-copy p{color:#555;font-size:17px;margin:20px 0;line-height:1.9}
-.about-values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-.value{background:white;padding:18px;border-left:4px solid var(--orange);box-shadow:0 5px 20px rgba(0,0,0,.04)}
-.value strong{display:block;font-size:17px}
-.value small{color:#777;font-size:13px}
+
+.art-content p{
+color:#bbb;
+font-size:10px;
+letter-spacing:4px;
+margin-top:6px;
+}
+
+.about-copy p{
+color:#555;
+font-size:16px;
+margin:18px 0;
+line-height:1.9;
+}
+
+.about-values{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin:25px 0;
+}
+
+.value{
+background:white;
+padding:18px;
+border-left:4px solid var(--orange);
+box-shadow:0 5px 20px rgba(0,0,0,.04);
+}
+
+.value strong{
+display:block;
+font-size:16px;
+}
+
+.value small{
+color:#777;
+font-size:13px;
+}
 
 /* NEWS */
 .news{background:white}
-.news-topline{height:4px;background:linear-gradient(90deg,var(--orange) 0 25%,var(--black) 25% 100%);margin-bottom:22px}
-.news-empty{background:#fffaf3;border:1px solid #f2d5bf;padding:65px 25px;text-align:center}
-.news-empty-icon{font-size:42px;color:var(--orange)}
-.news-empty h3{font-size:25px;margin:15px 0 7px}
+
+.news-topline{
+height:4px;
+background:linear-gradient(90deg,var(--orange) 0 25%,var(--black) 25% 100%);
+margin-bottom:22px;
+}
+
+.news-empty{
+background:#fffaf3;
+border:1px solid #f2d5bf;
+padding:60px 25px;
+text-align:center;
+}
+
+.news-empty-icon{
+font-size:42px;
+color:var(--orange);
+}
+
+.news-empty h3{
+font-size:24px;
+margin:15px 0 7px;
+}
+
 .news-empty p{color:#777}
 
 /* VIDEO */
-.video-section{background:var(--black2);color:white}
+.video-section{
+background:var(--black2);
+color:white;
+}
+
 .video-section .section-title{color:white}
 .video-section .section-subtitle{color:#c1c1c1}
-.video-layout{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;margin-top:40px}
-.video-main{background:#050505;border:1px solid #333;min-height:320px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
-.video-placeholder .play{width:75px;height:75px;background:var(--orange);display:grid;place-items:center;border-radius:50%;font-size:29px;margin:0 auto 18px}
-.video-placeholder h3{font-size:23px}
-.video-placeholder p{color:#aaa;margin-top:8px;font-size:14px}
-.video-side{background:#1a1a1a;padding:30px;border-left:3px solid var(--orange)}
-.video-side h3{font-size:26px;margin-bottom:15px}
-.video-side p{color:#bbb;margin-bottom:22px;line-height:1.8}
+
+.video-layout{
+display:grid;
+grid-template-columns:1.55fr 1fr;
+gap:28px;
+margin-top:40px;
+}
+
+.video-main{
+background:#050505;
+border:1px solid #333;
+min-height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
+}
+
+.video-placeholder .play{
+width:70px;
+height:70px;
+background:var(--orange);
+display:grid;
+place-items:center;
+border-radius:50%;
+font-size:27px;
+margin:0 auto 18px;
+}
+
+.video-placeholder h3{font-size:22px}
+.video-placeholder p{
+color:#aaa;
+margin-top:8px;
+font-size:14px;
+}
+
+.video-side{
+background:#1a1a1a;
+padding:30px;
+border-left:3px solid var(--orange);
+}
+
+.video-side h3{
+font-size:25px;
+margin-bottom:15px;
+}
+
+.video-side p{
+color:#bbb;
+margin-bottom:22px;
+line-height:1.8;
+}
 
 /* ADVERTISE */
 .advertise{background:var(--cream)}
-.ad-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
-.ad-card{background:white;padding:32px 27px;border-bottom:4px solid var(--orange);transition:.3s}
-.ad-card:hover{transform:translateY(-7px);box-shadow:0 15px 35px rgba(0,0,0,.1)}
-.ad-icon{font-size:35px;color:var(--orange)}
-.ad-card h3{font-size:21px;margin:15px 0 8px}
-.ad-card p{font-size:14px;color:#777;line-height:1.8}
+
+.ad-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin-top:40px;
+}
+
+.ad-card{
+background:white;
+padding:30px 25px;
+border-bottom:4px solid var(--orange);
+transition:.3s;
+}
+
+.ad-card:hover{
+transform:translateY(-7px);
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.ad-icon{
+font-size:34px;
+color:var(--orange);
+}
+
+.ad-card h3{
+font-size:20px;
+margin:15px 0 8px;
+}
+
+.ad-card p{
+font-size:14px;
+color:#777;
+line-height:1.8;
+}
 
 /* CONTACT */
 .contact{background:var(--lightgreen)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:42px}
-.contact-card{background:white;padding:38px}
-.contact-item{display:flex;gap:17px;align-items:center;margin:24px 0}
-.contact-icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;background:var(--lightgreen);color:var(--green);font-size:22px;border-radius:50%}
-.contact-item small{display:block;color:#888;font-size:12px}
-.contact-item strong{font-size:17px;overflow-wrap:anywhere}
-.contact-message{background:var(--forest);color:white;padding:45px;display:flex;flex-direction:column;justify-content:center}
-.contact-message h3{font-size:35px;line-height:1.2}
-.contact-message p{color:#d0e4d7;margin:20px 0;line-height:1.8}
-.btn-green{background:var(--green);color:white;align-self:flex-start}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:40px;
+}
+
+.contact-card{
+background:white;
+padding:35px;
+}
+
+.contact-item{
+display:flex;
+gap:17px;
+align-items:center;
+margin:24px 0;
+}
+
+.contact-icon{
+width:48px;
+height:48px;
+flex-shrink:0;
+display:grid;
+place-items:center;
+background:var(--lightgreen);
+color:var(--green);
+font-size:22px;
+border-radius:50%;
+}
+
+.contact-item small{
+display:block;
+color:#888;
+font-size:12px;
+}
+
+.contact-item strong{
+font-size:16px;
+overflow-wrap:anywhere;
+}
+
+.contact-message{
+background:var(--forest);
+color:white;
+padding:40px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.contact-message h3{
+font-size:32px;
+line-height:1.2;
+}
+
+.contact-message p{
+color:#d0e4d7;
+margin:20px 0;
+line-height:1.8;
+}
+
+.btn-green{
+background:var(--green);
+color:white;
+align-self:flex-start;
+}
+
 .btn-green:hover{background:var(--bright)}
 
 /* FOOTER */
-footer{background:var(--forest);color:white;padding:65px 0 20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:45px}
-.footer-title{font-size:21px;font-weight:900;letter-spacing:1px}
-.footer-title span{color:var(--orange)}
-footer h3{color:var(--orange);font-size:14px;letter-spacing:2px;margin-bottom:20px}
-footer p,footer a{font-size:14px;color:#d5e4da;line-height:1.9}
-.footer-about p{max-width:380px;margin-top:15px}
-.footer-links a{display:block;margin:8px 0}
-.footer-links a:hover{color:var(--bright)}
-.footer-bottom{border-top:1px solid #315b4d;margin-top:45px;padding-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#b6cbbd;font-size:12px}
+footer{
+background:var(--forest);
+color:white;
+padding:60px 0 20px;
+}
 
-/* MOBILE */
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:45px;
+}
+
+.footer-title{
+font-size:21px;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.footer-title span{color:var(--orange)}
+
+footer h3{
+color:var(--orange);
+font-size:14px;
+letter-spacing:2px;
+margin-bottom:20px;
+}
+
+footer p,footer a{
+font-size:14px;
+color:#d5e4da;
+line-height:1.9;
+}
+
+.footer-about p{
+max-width:380px;
+margin-top:15px;
+}
+
+.footer-links a{
+display:block;
+margin:8px 0;
+}
+
+.footer-links a:hover{color:var(--bright)}
+
+.footer-bottom{
+border-top:1px solid #315b4d;
+margin-top:40px;
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+color:#b6cbbd;
+font-size:12px;
+}
+
+/* TABLET */
 @media(max-width:950px){
 .menu-button{display:block}
-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--black);padding:15px 5%;flex-direction:column;align-items:stretch;gap:0;border-bottom:2px solid var(--orange)}
-nav.active{display:flex}
-nav a{padding:14px 5px;border-bottom:1px solid #292929}
-nav .nav-youtube{margin-top:10px;text-align:center}
-.about-grid{gap:35px}
+
+nav{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+background:var(--black);
+padding:15px 5%;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+border-bottom:2px solid var(--orange);
 }
+
+nav.active{display:flex}
+
+nav a{
+padding:14px 5px;
+border-bottom:1px solid #292929;
+}
+
+nav .nav-youtube{
+margin-top:10px;
+text-align:center;
+}
+
+.about-grid{gap:30px}
+}
+
+/* MOBILE */
 @media(max-width:700px){
 .container{width:90%}
-.topbar-inner{justify-content:center;text-align:center;flex-wrap:wrap}
+
+.topbar-inner{
+justify-content:center;
+text-align:center;
+flex-wrap:wrap;
+}
+
 .header-inner{min-height:76px}
-.logo{width:58px;height:58px}
+
+.logo{
+width:58px;
+height:58px;
+}
+
 .brand-text{font-size:19px}
-.brand-text small{font-size:8px;letter-spacing:3px}
-.hero{min-height:650px}
-.hero-content{padding:75px 0 140px}
-.hero h1{letter-spacing:-2px}
-.hero-description{font-size:17px}
+
+.brand-text small{
+font-size:8px;
+letter-spacing:3px;
+}
+
+.hero{min-height:420px}
+
+.hero-content{
+padding:55px 0 115px;
+}
+
+.hero h1{
+font-size:36px;
+letter-spacing:-1px;
+}
+
+.hero-description{font-size:15px}
+
+.hero-tag{
+font-size:10px;
+letter-spacing:2px;
+}
+
 .hero-bottom .container{width:94%}
+
 .hero-stat{padding:0 10px}
-.hero-stat strong{font-size:13px}
-.hero-stat span{font-size:10px}
-.hero-orbit{width:400px;height:400px;right:-230px}
-.intro-inner{flex-direction:column;text-align:center}
-.section{padding:70px 0}
+
+.hero-stat strong{font-size:12px}
+.hero-stat span{font-size:9px}
+
+.hero-orbit{
+width:350px;
+height:350px;
+right:-230px;
+}
+
+.intro-inner{
+flex-direction:column;
+text-align:center;
+}
+
+.intro p{font-size:11px}
+
+.section{padding:65px 0}
+
 .heading-row{display:block}
-.about-grid,.video-layout,.contact-grid{grid-template-columns:1fr}
-.about-art{min-height:350px}
+
+.about-grid,
+.video-layout,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.about-art{min-height:330px}
+
 .about-values{grid-template-columns:1fr 1fr}
+
 .ad-cards{grid-template-columns:1fr}
-.video-main{min-height:260px}
-.contact-card,.contact-message{padding:28px 22px}
-.footer-grid{grid-template-columns:1fr;gap:35px}
+
+.video-main{min-height:250px}
+
+.contact-card,
+.contact-message{
+padding:27px 22px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+gap:32px;
+}
+
 .footer-bottom{flex-direction:column}
 }
+
+/* SMALL PHONES */
 @media(max-width:390px){
 .brand-text{font-size:16px}
-.logo{width:50px;height:50px}
-.hero h1{font-size:46px}
-.about-values{grid-template-columns:1fr}
+
+.logo{
+width:50px;
+height:50px;
 }
+
+.hero h1{font-size:32px}
+
+.about-values{grid-template-columns:1fr}
+
+.hero-buttons .btn{
+padding:12px 15px;
+font-size:10px;
+}
+}
+
+/* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
-*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+*,*::before,*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+scroll-behavior:auto!important;
+transition-duration:.01ms!important;
+}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
 <div class="container topbar-inner">
 <span>WELCOME TO MASABA LAND MEDIA</span>
-<span>CALL US: <a href="tel:0784079190">0784079190</a> &nbsp; | &nbsp; <a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></span>
+<span>
+CALL US:
+<a href="tel:0784079190">0784079190</a>
+&nbsp; | &nbsp;
+<a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a>
+</span>
 </div>
 </div>
 
+<!-- HEADER -->
 <header>
 <div class="container header-inner">
+
 <a href="#home" class="brand">
 <img class="logo" src="masaba-logo.jpeg" alt="Masaba Land Media official logo">
-<div class="brand-text">MASABA <span class="orange">LAND</span><small>MEDIA</small></div>
+<div class="brand-text">
+MASABA <span class="orange">LAND</span>
+<small>MEDIA</small>
+</div>
 </a>
 
 <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -359,41 +954,59 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <a href="#contact" onclick="closeMenu()">Contact</a>
 <a class="nav-youtube" href="https://www.youtube.com/" target="_blank" rel="noopener">▶ WATCH YOUTUBE</a>
 </nav>
+
 </div>
 </header>
 
 <main>
 
+<!-- HERO -->
 <section class="hero" id="home">
 
-<!-- Genuine photographs can be added to this slideshow later -->
-<div class="hero-slideshow" id="heroSlideshow"></div>
-<div class="hero-photo-overlay"></div>
-
 <div class="hero-orbit"></div>
-<div class="hero-glow"></div>
 
 <div class="container">
 <div class="hero-content">
+
 <div class="hero-tag">YOUR COMMUNITY. YOUR VOICE. YOUR MEDIA.</div>
-<h1>MASABA<br><span>LAND</span> <span class="white">MEDIA.</span></h1>
-<p class="hero-description">Stories that connect us. Information that empowers us. A media platform dedicated to bringing our community closer.</p>
+
+<h1>
+MASABA<br>
+<span>LAND</span> <span class="white">MEDIA.</span>
+</h1>
+
+<p class="hero-description">
+Stories that connect us. Information that empowers us. A media platform dedicated to bringing our community closer.
+</p>
+
 <div class="hero-buttons">
 <a href="#about" class="btn btn-orange">DISCOVER OUR STORY →</a>
 <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="btn btn-outline">▶ WATCH ON YOUTUBE</a>
 </div>
+
 </div>
 </div>
 
 <div class="hero-bottom">
 <div class="container hero-stats">
-<div class="hero-stat"><strong>COMMUNITY</strong><span>OUR FOUNDATION</span></div>
-<div class="hero-stat"><strong>INFORMATION</strong><span>OUR PURPOSE</span></div>
-<div class="hero-stat"><strong>TOGETHER</strong><span>OUR FUTURE</span></div>
+<div class="hero-stat">
+<strong>COMMUNITY</strong>
+<span>OUR FOUNDATION</span>
+</div>
+<div class="hero-stat">
+<strong>INFORMATION</strong>
+<span>OUR PURPOSE</span>
+</div>
+<div class="hero-stat">
+<strong>TOGETHER</strong>
+<span>OUR FUTURE</span>
 </div>
 </div>
+</div>
+
 </section>
 
+<!-- BRAND INTRO -->
 <div class="intro">
 <div class="container intro-inner">
 <p><strong>MASABA LAND MEDIA</strong> &nbsp; | &nbsp; LET'S SHAPE OUR COMMUNITY</p>
@@ -401,6 +1014,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 </div>
 </div>
 
+<!-- ABOUT -->
 <section class="section about" id="about">
 <div class="container about-grid">
 
@@ -414,25 +1028,47 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 
 <div class="about-copy">
 <div class="section-label">WHO WE ARE</div>
+
 <h2 class="section-title">A Voice For <span>Our Community.</span></h2>
+
 <p>Masaba Land Media is a community-focused media brand built around the power of information, communication and storytelling.</p>
+
 <p>We aim to create a platform where community voices, local developments, ideas and important conversations can reach a wider audience.</p>
+
 <p>We believe that informed communities are stronger communities. Through responsible media and meaningful engagement, we want to help shape a better tomorrow.</p>
 
 <div class="about-values">
-<div class="value"><strong>Our Vision</strong><small>To shape our community through media.</small></div>
-<div class="value"><strong>Our Mission</strong><small>To inform, connect and engage people.</small></div>
-<div class="value"><strong>Our Values</strong><small>Integrity, responsibility and service.</small></div>
-<div class="value"><strong>Our Promise</strong><small>Stories that matter to our people.</small></div>
+<div class="value">
+<strong>Our Vision</strong>
+<small>To shape our community through media.</small>
+</div>
+
+<div class="value">
+<strong>Our Mission</strong>
+<small>To inform, connect and engage people.</small>
+</div>
+
+<div class="value">
+<strong>Our Values</strong>
+<small>Integrity, responsibility and service.</small>
+</div>
+
+<div class="value">
+<strong>Our Promise</strong>
+<small>Stories that matter to our people.</small>
+</div>
 </div>
 
 <a href="#contact" class="btn btn-orange">CONNECT WITH US →</a>
 </div>
+
 </div>
 </section>
 
+<!-- LATEST NEWS -->
 <section class="section news" id="latest">
 <div class="container">
+
 <div class="heading-row">
 <div>
 <div class="section-label">FROM OUR NEWSROOM</div>
@@ -443,21 +1079,27 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 </div>
 
 <div class="news-topline"></div>
+
 <div class="news-empty">
 <div class="news-empty-icon">▤</div>
 <h3>Our Newsroom Is Preparing For Publication</h3>
 <p>There are currently no published stories. Genuine news updates will appear here as they are published.</p>
 </div>
+
 </div>
 </section>
 
+<!-- VIDEOS -->
 <section class="section video-section" id="videos">
 <div class="container">
+
 <div class="section-label">WATCH AND CONNECT</div>
 <h2 class="section-title">Masaba Land <span>On Screen.</span></h2>
+
 <p class="section-subtitle">Discover our video stories, conversations and community coverage on YouTube.</p>
 
 <div class="video-layout">
+
 <div class="video-main">
 <div class="video-placeholder">
 <div class="play">▶</div>
@@ -472,17 +1114,22 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <p>Follow Masaba Land Media for community stories, video content and meaningful conversations. Subscribe and join our growing community.</p>
 <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="btn btn-orange">▶ VISIT YOUTUBE</a>
 </div>
+
 </div>
 </div>
 </section>
 
+<!-- ADVERTISE -->
 <section class="section advertise" id="advertise">
 <div class="container">
+
 <div class="section-label">GROW WITH US</div>
 <h2 class="section-title">Advertise With <span>Masaba Land.</span></h2>
+
 <p class="section-subtitle">Give your business, organisation or brand an opportunity to connect with our audience through media and promotional opportunities.</p>
 
 <div class="ad-cards">
+
 <div class="ad-card">
 <div class="ad-icon">▣</div>
 <h3>Business Promotion</h3>
@@ -500,51 +1147,71 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <h3>Brand Visibility</h3>
 <p>Build awareness, communicate your message and connect with the community.</p>
 </div>
+
 </div>
 
 <div style="margin-top:35px">
 <a href="mailto:umarongu@gmail.com?subject=Masaba%20Land%20Media%20Advertising%20Enquiry" class="btn btn-orange">DISCUSS ADVERTISING →</a>
 </div>
+
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section contact" id="contact">
 <div class="container">
+
 <div class="section-label">WE WOULD LOVE TO HEAR FROM YOU</div>
 <h2 class="section-title">Let's <span>Talk.</span></h2>
+
 <p class="section-subtitle">Have a story, business enquiry, partnership proposal or question? Contact Masaba Land Media.</p>
 
 <div class="contact-grid">
+
 <div class="contact-card">
+
 <div class="contact-item">
 <div class="contact-icon">☎</div>
-<div><small>TELEPHONE</small><strong><a href="tel:0784079190">0784079190</a></strong></div>
+<div>
+<small>TELEPHONE</small>
+<strong><a href="tel:0784079190">0784079190</a></strong>
+</div>
 </div>
 
 <div class="contact-item">
 <div class="contact-icon">✉</div>
-<div><small>EMAIL ADDRESS</small><strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong></div>
+<div>
+<small>EMAIL ADDRESS</small>
+<strong><a href="mailto:umarongu@gmail.com">umarongu@gmail.com</a></strong>
+</div>
 </div>
 
 <div class="contact-item">
 <div class="contact-icon">▶</div>
-<div><small>MEDIA PLATFORM</small><strong>MASABA LAND MEDIA</strong></div>
+<div>
+<small>MEDIA PLATFORM</small>
+<strong>MASABA LAND MEDIA</strong>
 </div>
+</div>
+
 </div>
 
 <div class="contact-message">
 <h3>Let's Shape Our Community Together.</h3>
 <p>Your voice matters. Your story matters. Reach out and let's build meaningful connections.</p>
-<a href="https://wa.me/254784079190" class="btn btn-green">WHATSAPP OUR TEAM →</a>
+<a href="https://wa.me/256784079190" target="_blank" rel="noopener" class="btn btn-green">WHATSAPP OUR TEAM →</a>
 </div>
+
 </div>
 </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
 <div class="container">
+
 <div class="footer-grid">
 
 <div class="footer-about">
@@ -574,6 +1241,7 @@ nav .nav-youtube{margin-top:10px;text-align:center}
 <span>© <span id="year"></span> MASABA LAND MEDIA. ALL RIGHTS RESERVED.</span>
 <span>LET'S SHAPE OUR COMMUNITY.</span>
 </div>
+
 </div>
 </footer>
 
@@ -593,58 +1261,6 @@ button.setAttribute('aria-expanded','false');
 }
 
 document.getElementById('year').textContent=new Date().getFullYear();
-
-/*
-FUTURE PHOTO SLIDESHOW
-
-When genuine photographs are uploaded to GitHub,
-add their exact filenames to this array.
-
-Example:
-const heroPhotos = [
-  'community-event.jpeg',
-  'masaba-interview.jpeg',
-  'news-coverage.jpeg'
-];
-
-The images will automatically rotate with smooth
-crossfade and cinematic zoom effects.
-*/
-
-const heroPhotos = [];
-
-const slideshow=document.getElementById('heroSlideshow');
-let currentPhoto=0;
-
-function showHeroPhotos(){
-if(!heroPhotos.length)return;
-
-heroPhotos.forEach((filename,index)=>{
-const image=document.createElement('img');
-image.src=filename;
-image.alt='Masaba Land Media community photography';
-image.className='hero-photo';
-if(index===0)image.classList.add('active');
-
-image.onerror=()=>image.remove();
-
-slideshow.appendChild(image);
-});
-
-const photos=slideshow.querySelectorAll('.hero-photo');
-if(!photos.length)return;
-
-setInterval(()=>{
-const available=slideshow.querySelectorAll('.hero-photo');
-if(available.length<2)return;
-
-available[currentPhoto]?.classList.remove('active');
-currentPhoto=(currentPhoto+1)%available.length;
-available[currentPhoto]?.classList.add('active');
-},6500);
-}
-
-showHeroPhotos();
 </script>
 
 </body>
